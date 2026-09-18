@@ -34,6 +34,8 @@ interface HeaderProps {
   onChangeMainView?: (view: 'community' | 'dating') => void;
   blockedUsersCount?: number;
   pendingReportsCount?: number;
+  isCherryBlossomActive?: boolean;
+  onToggleCherryBlossoms?: () => void;
 }
 
 export default function Header({
@@ -52,6 +54,8 @@ export default function Header({
   onChangeMainView,
   blockedUsersCount = 0,
   pendingReportsCount = 0,
+  isCherryBlossomActive = true,
+  onToggleCherryBlossoms,
 }: HeaderProps) {
   const [bgmState, setBgmState] = useState<{ isPlaying: boolean; isMuted: boolean; volume: number }>({
     isPlaying: false,
@@ -128,18 +132,25 @@ export default function Header({
                 type="button"
                 id="btn-nav-dating"
                 onClick={() => onChangeMainView('dating')}
-                className={`px-2.5 sm:px-3.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-2.5 sm:px-3.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer relative group ${
                   activeMainView === 'dating'
-                    ? 'bg-rose-600 text-white shadow-2xs font-bold'
-                    : 'text-rose-600 hover:text-rose-700 hover:bg-rose-50/80'
+                    ? 'bg-gradient-to-r from-pink-500 via-rose-500 to-rose-600 text-white shadow-xs font-bold'
+                    : 'text-rose-600 hover:text-rose-700 hover:bg-rose-50/90'
                 }`}
               >
-                <Heart className={`w-3.5 h-3.5 ${activeMainView === 'dating' ? 'fill-white' : 'fill-rose-500'}`} />
-                <span>공무원 소개팅</span>
-                <span className={`px-1 py-0.2 rounded-sm text-[9px] font-extrabold hidden lg:inline ${
-                  activeMainView === 'dating' ? 'bg-rose-500 text-white' : 'bg-rose-100 text-rose-600'
-                }`}>
-                  NEW
+                <span className="text-base leading-none select-none inline-block transition-transform group-hover:rotate-12 group-hover:scale-125">
+                  🌸
+                </span>
+                <span className="font-extrabold tracking-tight">공무원 소개팅</span>
+                <span
+                  className={`px-1.5 py-0.2 rounded-full text-[9px] font-black flex items-center gap-0.5 tracking-tight ${
+                    activeMainView === 'dating'
+                      ? 'bg-white/25 text-white backdrop-blur-xs'
+                      : 'bg-pink-100 text-pink-700 border border-pink-200'
+                  }`}
+                >
+                  <span className="text-[10px] leading-none">🌸</span>
+                  <span>벚꽃 NEW</span>
                 </span>
               </button>
             </div>
@@ -216,6 +227,32 @@ export default function Header({
               </>
             )}
           </button>
+
+          {/* CHERRY BLOSSOM PETALS TOGGLE BUTTON */}
+          {onToggleCherryBlossoms && (
+            <button
+              id="btn-header-blossom-toggle"
+              type="button"
+              onClick={onToggleCherryBlossoms}
+              className={`p-2 sm:px-2.5 sm:py-2 rounded-xl text-xs font-bold border transition-all flex items-center gap-1.5 cursor-pointer ${
+                isCherryBlossomActive
+                  ? 'bg-pink-50 border-pink-300 text-pink-700 shadow-2xs hover:bg-pink-100'
+                  : 'border-slate-200 text-slate-500 hover:text-slate-800 hover:bg-slate-100'
+              }`}
+              title={
+                isCherryBlossomActive
+                  ? '흩날리는 벚꽃 효과 끄기 (벚꽃 OFF)'
+                  : '봄맞이 흩날리는 벚꽃 효과 켜기 (벚꽃 ON)'
+              }
+            >
+              <span className={`text-sm leading-none select-none transition-transform ${isCherryBlossomActive ? 'animate-bounce' : 'opacity-60'}`}>
+                🌸
+              </span>
+              <span className="hidden xl:inline font-bold">
+                {isCherryBlossomActive ? '벚꽃 ON' : '벚꽃 OFF'}
+              </span>
+            </button>
+          )}
 
           {/* DIRECT MESSAGES (쪽지함) BUTTON */}
           {onOpenDirectMessages && (

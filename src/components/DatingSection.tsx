@@ -102,21 +102,29 @@ export default function DatingSection({
 
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
-      {/* Hero Banner with Safety Guarantee */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-rose-500 via-pink-600 to-indigo-700 text-white p-6 sm:p-8 shadow-md">
-        {/* Abstract background decorative circles */}
-        <div className="pointer-events-none absolute -right-12 -bottom-12 w-64 h-64 rounded-full bg-white/10 blur-2xl" />
-        <div className="pointer-events-none absolute left-1/3 -top-12 w-48 h-48 rounded-full bg-rose-400/20 blur-xl" />
+      {/* Hero Banner with Safety Guarantee and Cherry Blossom Theme */}
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-500 via-rose-500 to-indigo-700 text-white p-6 sm:p-8 shadow-md">
+        {/* Cherry blossom background decorations */}
+        <div className="pointer-events-none absolute -right-8 -top-8 text-7xl sm:text-8xl opacity-20 select-none">🌸</div>
+        <div className="pointer-events-none absolute right-1/4 -bottom-6 text-6xl opacity-15 select-none">🌸</div>
+        <div className="pointer-events-none absolute -right-12 -bottom-12 w-64 h-64 rounded-full bg-pink-300/20 blur-2xl" />
+        <div className="pointer-events-none absolute left-1/3 -top-12 w-48 h-48 rounded-full bg-rose-400/25 blur-xl" />
 
         <div className="relative z-10 max-w-2xl space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-xs font-bold text-white shadow-2xs">
-            <ShieldCheck className="w-3.5 h-3.5 text-rose-200" />
-            <span>100% 공직 메일 인증 공무원 안심 블라인드</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-xs font-bold text-white shadow-2xs">
+              <span className="text-sm">🌸</span>
+              <span>2026 봄 벚꽃 시즌 특별 오픈</span>
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-xs font-bold text-white shadow-2xs">
+              <ShieldCheck className="w-3.5 h-3.5 text-rose-200" />
+              <span>100% 공직 메일 인증 안심 블라인드</span>
+            </div>
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight leading-tight">
-            공직 생활의 고충을 이해하는<br className="hidden sm:inline" />
-            특별한 인연을 만나보세요
+            🌸 벚꽃 흩날리는 봄날,<br className="hidden sm:inline" />
+            공직 생활을 함께 나눌 따뜻한 인연을 만나보세요
           </h1>
 
           <p className="text-xs sm:text-sm text-rose-100 font-medium leading-relaxed">

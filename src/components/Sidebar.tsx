@@ -117,24 +117,27 @@ export default function Sidebar({
             type="button"
             id="sidebar-btn-dating"
             onClick={() => onChangeMainView('dating')}
-            className={`w-full flex items-center justify-between p-2.5 rounded-xl transition-all ${
+            className={`w-full flex items-center justify-between p-2.5 rounded-xl transition-all cursor-pointer group ${
               activeMainView === 'dating'
-                ? 'bg-rose-600 text-white shadow-xs'
-                : 'bg-rose-50/60 hover:bg-rose-100/80 text-rose-900 border border-rose-200/80'
+                ? 'bg-gradient-to-r from-pink-500 via-rose-500 to-rose-600 text-white shadow-xs'
+                : 'bg-gradient-to-r from-pink-50/80 to-rose-50/80 hover:from-pink-100 hover:to-rose-100 text-rose-900 border border-pink-200'
             }`}
           >
             <div className="flex items-center gap-2">
               <div
-                className={`w-7 h-7 rounded-lg flex items-center justify-center ${
-                  activeMainView === 'dating' ? 'bg-white/20 text-white' : 'bg-rose-500 text-white'
+                className={`w-7 h-7 rounded-lg flex items-center justify-center text-base shadow-2xs transition-transform group-hover:scale-110 ${
+                  activeMainView === 'dating' ? 'bg-white/20 text-white' : 'bg-pink-500 text-white'
                 }`}
               >
-                <Heart className="w-4 h-4 fill-current" />
+                🌸
               </div>
               <div className="text-left">
-                <span className="font-black text-xs block">공무원 안심 소개팅</span>
-                <span className={`text-[10px] block ${activeMainView === 'dating' ? 'text-rose-100' : 'text-rose-600'}`}>
-                  소속 부처 인증 매칭
+                <div className="flex items-center gap-1">
+                  <span className="font-black text-xs block">공무원 안심 소개팅</span>
+                  <span className="text-[9px] bg-pink-100 text-pink-700 px-1 rounded-full font-bold">🌸 벚꽃</span>
+                </div>
+                <span className={`text-[10px] block ${activeMainView === 'dating' ? 'text-pink-100' : 'text-rose-600'}`}>
+                  벚꽃잎 날리는 설레는 인연
                 </span>
               </div>
             </div>
@@ -143,7 +146,7 @@ export default function Sidebar({
                 activeMainView === 'dating' ? 'bg-white text-rose-600' : 'bg-rose-600 text-white animate-pulse'
               }`}
             >
-              HOT
+              🌸 HOT
             </span>
           </button>
         )}

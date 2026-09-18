@@ -14,6 +14,7 @@ import DirectMessagesModal from './components/DirectMessagesModal';
 import DatingSection from './components/DatingSection';
 import EditDatingProfileModal from './components/EditDatingProfileModal';
 import BackgroundMusicPlayer from './components/BackgroundMusicPlayer';
+import CherryBlossoms from './components/CherryBlossoms';
 import {
   AgencyCategory,
   Post,
@@ -176,6 +177,7 @@ export default function App() {
   const [isDirectMessagesOpen, setIsDirectMessagesOpen] = useState<boolean>(false);
   const [activeConversationId, setActiveConversationId] = useState<string | null>(null);
   const [isEditDatingProfileOpen, setIsEditDatingProfileOpen] = useState<boolean>(false);
+  const [isCherryBlossomActive, setIsCherryBlossomActive] = useState<boolean>(true);
 
   // Report Modal state
   const [reportModalData, setReportModalData] = useState<{
@@ -1109,6 +1111,8 @@ export default function App() {
         onChangeMainView={setActiveMainView}
         blockedUsersCount={blockedUsersCount}
         pendingReportsCount={pendingReportsCount}
+        isCherryBlossomActive={isCherryBlossomActive}
+        onToggleCherryBlossoms={() => setIsCherryBlossomActive((prev) => !prev)}
       />
 
       {/* Main Container */}
@@ -1494,6 +1498,9 @@ export default function App() {
 
       {/* YouTube Background Music Player (온/오프 및 볼륨 컨트롤 지원) */}
       <BackgroundMusicPlayer />
+
+      {/* Spring Cherry Blossom Petals Effect (은은하게 흩날리는 벚꽃잎 애니메이션) */}
+      <CherryBlossoms enabled={isCherryBlossomActive} />
     </div>
   );
 }
